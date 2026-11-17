@@ -34,7 +34,7 @@
                 android:scaleType="fitCenter"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
-                app:lottie_rawRes="@raw/lottie_system_nav_fully_gestural" />
+                app:lottie_rawRes="@raw/lottie_system_nav_3_button" />
 
         </FrameLayout>
 
@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/control_card_margin_top"
-            app:checkedButton="@+id/mode_gesture"
+            app:checkedButton="@+id/mode_sw_keys"
             app:selectionRequired="true"
             app:singleSelection="true">
 

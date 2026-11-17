@@ -8,12 +8,14 @@ package org.lineageos.setupwizard
 
 import android.app.Application
 import android.app.StatusBarManager
+import android.app.UiModeManager
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.SystemProperties
 import android.provider.Settings
 import android.util.Log
+import android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_3BUTTON_OVERLAY
 import org.lineageos.setupwizard.util.SetupWizardUtils
 
 val LOGV: Boolean = Log.isLoggable(SetupWizardApp.TAG, Log.VERBOSE)
@@ -56,6 +58,15 @@ class SetupWizardApp : Application() {
         }
         statusBarManager = SetupWizardUtils.disableStatusBar(this)
         handler.postDelayed(radioTimeoutRunnable, RADIO_READY_TIMEOUT.toLong())
+        val userSetupComplete =
+            Settings.Secure.getInt(contentResolver, Settings.Secure.USER_SETUP_COMPLETE, 0)
+        if (SetupWizardUtils.isOwner() && userSetupComplete == 0) {
+            uiModeManager?.setNightModeActivated(true)
+            settingsBundle.putString(
+                NAVIGATION_OPTION_KEY,
+                NAV_BAR_MODE_3BUTTON_OVERLAY,
+            )
+        }
         if (SetupWizardUtils.hasGMS(this)) {
             SetupWizardUtils.disableHome(this)
             if (SetupWizardUtils.isOwner()) {
@@ -63,6 +74,8 @@ class SetupWizardApp : Application() {
             }
         }
     }
+
+    private val uiModeManager by lazy { getSystemService(UiModeManager::class.java) }
 
     companion object {
         const val TAG = "SetupWizardApp"

@@ -13,6 +13,7 @@ import android.content.ContentResolver
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
+import android.os.Bundle
 import android.content.SharedPreferences
 import android.content.om.IOverlayManager
 import android.content.pm.PackageManager
@@ -335,8 +336,7 @@ object SetupWizardUtils {
         }
     }
 
-    private fun handleNavigationOption() {
-        val settingsBundle = SetupWizardApp.settingsBundle
+    fun applyNavigationOption(settingsBundle: Bundle) {
         if (settingsBundle.containsKey(NAVIGATION_OPTION_KEY)) {
             val overlayManager =
                 IOverlayManager.Stub.asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE))
@@ -348,6 +348,10 @@ object SetupWizardUtils {
                 )
             }
         }
+    }
+
+    private fun handleNavigationOption() {
+        applyNavigationOption(SetupWizardApp.settingsBundle)
     }
 
     private fun writeDisableNavkeysOption(context: Context, enabled: Boolean) {

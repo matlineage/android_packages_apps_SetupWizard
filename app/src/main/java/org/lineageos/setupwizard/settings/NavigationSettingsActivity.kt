@@ -26,7 +26,7 @@ import org.lineageos.setupwizard.util.updateCheckedIcons
 
 class NavigationSettingsActivity : BaseSetupWizardActivity() {
 
-    private var selection: String = NAV_BAR_MODE_GESTURAL_OVERLAY
+    private var selection: String = NAV_BAR_MODE_3BUTTON_OVERLAY
 
     private lateinit var hideGesturalHint: MaterialSwitch
     private lateinit var hideGesturalHintCard: View

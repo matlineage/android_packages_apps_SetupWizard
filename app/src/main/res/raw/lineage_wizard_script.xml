@@ -43,18 +43,6 @@
     <WizardAction
         id="datetime"
         wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.LINEAGE_DATETIME;end">
-        <result wizard:action="restore" />
-    </WizardAction>
-
-    <WizardAction
-        id="restore"
-        wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.LINEAGE_RESTORE_BACKUP;end">
-        <result wizard:action="location_settings" />
-    </WizardAction>
-
-    <WizardAction
-        id="location_settings"
-        wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.LINEAGE_LOCATION_SETTINGS;end">
         <result wizard:action="device_specific" />
     </WizardAction>
 
@@ -67,7 +55,7 @@
     <WizardAction
         id="recovery_update"
         wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.LINEAGE_RECOVERY_UPDATE;end">
-        <result wizard:action="lineage_settings" />
+        <result wizard:action="biometric_settings" />
     </WizardAction>
 
     <WizardAction
@@ -85,23 +73,11 @@
     <WizardAction
         id="lockscreen_settings"
         wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.LINEAGE_LOCKSCREEN_SETTINGS;end">
-        <result wizard:action="theme_settings" />
-    </WizardAction>
-
-    <WizardAction
-        id="theme_settings"
-        wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.THEME_SETTINGS;end">
-        <result wizard:action="navigation_settings" />
-    </WizardAction>
-
-    <WizardAction
-        id="navigation_settings"
-        wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.NAVIGATION_SETTINGS;end">
         <result wizard:action="finish" />
     </WizardAction>
 
     <WizardAction
         id="finish"
-        wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.LINEAGE_SETUP_COMPLETE;end" />
+        wizard:uri="intent:#Intent;action=org.lineageos.setupwizard.LINEAGE_SETUP_COMPLETE_SILENT;end" />
 
 </WizardScript>

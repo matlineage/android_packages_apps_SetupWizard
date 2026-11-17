@@ -73,7 +73,7 @@ class LineageSettingsActivity : BaseSetupWizardActivity() {
     private fun updateMetricsOption() {
         val myPageBundle = SetupWizardApp.settingsBundle
         val metricsChecked =
-            !myPageBundle.containsKey(KEY_SEND_METRICS) || myPageBundle.getBoolean(KEY_SEND_METRICS)
+            myPageBundle.containsKey(KEY_SEND_METRICS) && myPageBundle.getBoolean(KEY_SEND_METRICS)
         metricsItem.isChecked = metricsChecked
         myPageBundle.putBoolean(KEY_SEND_METRICS, metricsChecked)
     }
